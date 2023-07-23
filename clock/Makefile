@@ -8,6 +8,7 @@ all:
 .PHONY: build
 build:
 	cargo build --target wasm32-unknown-unknown --release
+	graph build
 
 .PHONY: pack
 pack:
@@ -31,4 +32,4 @@ gui:
 
 .PHONY: deploy
 deploy:
-	graph deploy --studio erc-20
+	graph deploy --studio clock

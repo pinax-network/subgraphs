@@ -5,7 +5,7 @@
 ## Networks
 - All chains
 
-### [Latest Releases](https://github.com/pinax-network/substreams/releases)
+### [Latest Releases](https://github.com/pinax-network/subgraphs/releases)
 
 ### Quickstart
 
