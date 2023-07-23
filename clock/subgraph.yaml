@@ -1,4 +1,4 @@
-specVersion: 0.0.7
+specVersion: 0.0.6
 description: Block ID, number & timestamp
 repository: https://github.com/pinax-network/substreams
 schema:
