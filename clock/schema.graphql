@@ -1,0 +1,7 @@
+type Clock @entity(immutable: true) {
+  id: ID!
+  number: BigInt!
+  seconds: BigInt!
+  nanos: BigInt!
+  timestamp: BigInt!
+}
