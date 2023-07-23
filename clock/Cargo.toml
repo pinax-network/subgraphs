@@ -3,7 +3,7 @@ name = "clock"
 version = "0.1.0"
 authors = ["Denis <denis@pinax.network>", "Etienne <etienne@pinax.network>"]
 description = "Block ID, number & timestamp"
-license = "MIT OR Apache-2.0"
+license = "MIT"
 edition = "2021"
 publish = false
 
