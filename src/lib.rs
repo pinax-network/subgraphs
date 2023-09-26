@@ -9,7 +9,7 @@ pub fn graph_out(clock: Clock) -> Result<EntityChanges, Error> {
     let timestamp = clock.timestamp.unwrap();
 
     tables
-        .create_row("Clock", clock.id)
+        .create_row("Clock", &clock.id)
         .set_bigint("number", &clock.number.to_string())
         .set_bigint("seconds", &timestamp.seconds.to_string())
         .set_bigint("nanos", &timestamp.nanos.to_string())

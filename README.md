@@ -1,32 +1,79 @@
-# Pinax Subgraphs 🚀
+# `Clock` Substream
 
-<span align="center">
+> Block ID, Number & Timestamp
 
-<a href="https://pinax.network"><img width="500" alt="image" src="https://user-images.githubusercontent.com/550895/214924558-fecddd2a-1e10-4893-8e0c-8f1bd75237e5.png"></img></a>
+## Networks
+- All chains
 
-[<img alt="github" src="https://img.shields.io/badge/Github-Pinax-7240C8?style=for-the-badge&logo=github">](https://github.com/pinax-network)
-[<img alt="github" src="https://img.shields.io/badge/Twitter-pinax-1D9BF0?style=for-the-badge&logo=twitter">](https://twitter.com/PinaxNetwork)
-[<img alt="discord" src="https://img.shields.io/badge/Discord-TheGraph-737CF8?style=for-the-badge&logo=discord">](https://discord.gg/graphprotocol)
+### [Latest Releases](https://github.com/pinax-network/subgraphs/releases)
 
-</span>
----
+### Quickstart
 
-<br />
+```bash
+$ make
+$ make run
+```
 
-## Development Status
+## Mermaid graph
 
-🔨 = In progress.  \
-🛠 = Feature complete. Additional testing required.  \
-✅ = Production-ready.  \
-⏰ = In queue. Not started.
+```mermaid
+graph TD;
+  graph_out[map: graph_out];
+  sf.substreams.v1.Clock[source: sf.substreams.v1.Clock] --> graph_out;
+```
 
-| Substream                                             | Status | Description |
-|-------------------------------------------------------|:------:|-------------|
-| [`clock`](clock/)                                     | ✅ | Block ID, number & timestamp
-| [`ERC20`](https://eips.ethereum.org/EIPS/eip-20)      | 🔨 | ERC-20: Token Standard
-| [`ERC721`](https://eips.ethereum.org/EIPS/eip-721)    | ⏰ | ERC-721: Non-Fungible Token Standard
+## Map output
 
-### Further resources
+```json
+{
+  "entityChanges": [
+    {
+      "entity": "Clock",
+      "id": "542d7e9a07a94d93879a51452d6f077a461d311018f0b03377b2d877bb72cdf0",
+      "ordinal": "0",
+      "operation": "OPERATION_CREATE",
+      "fields": [
+        {
+          "name": "number",
+          "newValue": {
+            "bigint": "18221781"
+          }
+        },
+        {
+          "name": "seconds",
+          "newValue": {
+            "bigint": "1695753443"
+          }
+        },
+        {
+          "name": "nanos",
+          "newValue": {
+            "bigint": "0"
+          }
+        },
+        {
+          "name": "timestamp",
+          "newValue": {
+            "string": "2023-09-26T18:37:23Z"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
 
-- [Creating a Subgraph](https://thegraph.com/docs/en/developing/creating-a-subgraph/)
-- [Substreams documentation](https://substreams.streamingfast.io)
+### Modules
+
+```yaml
+Package name: clock
+Version: v0.1.0
+Doc: Block ID, number & timestamp
+Modules:
+----
+Name: graph_out
+Initial block: 0
+Kind: map
+Output Type: proto:sf.substreams.sink.entity.v1.EntityChanges
+Hash: d2913e1f3c4966817a7cdbbd49db407a1a81ebc9
+```

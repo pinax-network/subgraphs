@@ -8,7 +8,6 @@ all:
 .PHONY: build
 build:
 	cargo build --target wasm32-unknown-unknown --release
-	graph build
 
 .PHONY: pack
 pack:
@@ -24,12 +23,13 @@ info:
 
 .PHONY: run
 run:
-	substreams run -e eth.firehose.pinax.network:9000 graph_out -s -1
+	substreams run -e eth.substreams.pinax.network:9000 graph_out -s -1
 
 .PHONY: gui
 gui:
-	substreams gui -e eth.firehose.pinax.network:9000 graph_out -s -1
+	substreams gui -e eth.substreams.pinax.network:9000 graph_out -s -1
 
 .PHONY: deploy
 deploy:
+	graph build
 	graph deploy --studio clock
