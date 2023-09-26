@@ -1,18 +1,23 @@
 # `Clock` Substream
 
+[![Build Status](https://github.com/pinax-network/substreams-clock/actions/workflows/test.yml/badge.svg)](https://github.com/pinax-network/substreams-clock/actions/workflows/test.yml)
+![Version](https://img.shields.io/github/v/release/pinax-network/substreams-clock)
+![License](https://img.shields.io/github/license/pinax-network/substreams-clock)
+
 > Block ID, Number & Timestamp
 
-## Networks
-- All chains
+## Quickstart
 
-### [Latest Releases](https://github.com/pinax-network/subgraphs/releases)
-
-### Quickstart
-
-```bash
-$ make
-$ make run
 ```
+$ gh repo clone pinax-network/substreams-clock
+$ cd substreams-clock
+$ make
+$ make gui
+```
+
+## Releases `.spkg`
+
+- https://github.com/pinax-network/substreams-clock/releases
 
 ## Mermaid graph
 
@@ -22,7 +27,9 @@ graph TD;
   sf.substreams.v1.Clock[source: sf.substreams.v1.Clock] --> graph_out;
 ```
 
-## Map output
+## Map Outputs
+
+### `graph_out`
 
 ```json
 {
