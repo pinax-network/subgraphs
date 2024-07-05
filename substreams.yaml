@@ -1,12 +1,12 @@
 specVersion: v0.1.0
 package:
   name: clock
-  version: v0.1.0
-  url: https://github.com/pinax-network/subgraphs
+  version: v0.2.0
+  url: https://github.com/pinax-network/substreams-clock
   doc: Block ID, number & timestamp
 
 imports:
-  entities: https://github.com/streamingfast/substreams-sink-entity-changes/releases/download/v1.3.0/substreams-sink-entity-changes-v1.3.0.spkg
+  entities: https://github.com/streamingfast/substreams-sink-entity-changes/releases/download/v1.3.2/substreams-sink-entity-changes-v1.3.2.spkg
 
 binaries:
   default:
@@ -14,9 +14,29 @@ binaries:
     file: ./target/wasm32-unknown-unknown/release/clock.wasm
 
 modules:
+  - name: store_min_block
+    kind: store
+    updatePolicy: min
+    valueType: int64
+    inputs:
+      - source: sf.substreams.v1.Clock
+
+  - name: block_index
+    kind: blockIndex
+    inputs:
+      - store: store_min_block
+        mode: deltas
+    output:
+      type: proto:sf.substreams.index.v1.Keys
+
   - name: graph_out
     kind: map
     inputs:
       - source: sf.substreams.v1.Clock
+    blockFilter:
+      module: block_index
+      query:
+        string: clock
+        params: false
     output:
       type: proto:sf.substreams.sink.entity.v1.EntityChanges
