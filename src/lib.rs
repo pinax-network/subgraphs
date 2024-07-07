@@ -1,3 +1,3 @@
-mod sinks;
+mod maps;
 mod index;
 mod stores;

@@ -23,11 +23,11 @@ info:
 
 .PHONY: run
 run:
-	substreams run -e eth.substreams.pinax.network:443 graph_out -s -100
+	substreams run -e eth.substreams.pinax.network:443 map_clock -s -100 --production-mode
 
 .PHONY: gui
 gui:
-	substreams gui -e eth.substreams.pinax.network:443 graph_out -s 1000 -t 1001
+	substreams gui -e eth.substreams.pinax.network:443 map_clock -s 1 -t 100000 --production-mode
 
 .PHONY: deploy
 deploy:

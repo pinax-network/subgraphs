@@ -8,7 +8,7 @@ fn block_index(min_block: Deltas<DeltaInt64>) -> Result<Keys, Error> {
     Ok(match min_block.deltas[0].operation != Operation::Create {
         true => Keys::default(),
         false => Keys {
-            keys: vec!["clock".to_string()],
+            keys: vec!["daily".to_string()],
         },
     })
 }

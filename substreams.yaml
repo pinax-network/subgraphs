@@ -29,14 +29,14 @@ modules:
     output:
       type: proto:sf.substreams.index.v1.Keys
 
-  - name: graph_out
+  - name: map_clock
     kind: map
     inputs:
       - source: sf.substreams.v1.Clock
     blockFilter:
       module: block_index
       query:
-        string: clock
+        string: daily
         params: false
     output:
-      type: proto:sf.substreams.sink.entity.v1.EntityChanges
+      type: proto:sf.substreams.v1.Clock
