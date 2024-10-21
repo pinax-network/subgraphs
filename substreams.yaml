@@ -4,9 +4,6 @@ package:
   version: v0.3.0
   url: https://github.com/pinax-network/substreams-clock
 
-imports:
-  entities: https://github.com/streamingfast/substreams-sink-entity-changes/releases/download/v1.3.2/substreams-sink-entity-changes-v1.3.2.spkg
-
 binaries:
   default:
     type: wasm/rust-v1
