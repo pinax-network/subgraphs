@@ -5,7 +5,8 @@
 ![License](https://img.shields.io/github/license/pinax-network/substreams-clock)
 
 > Emits `Clock` map modules at set intervals.
-> `hour`, `day`, `month`, `year` are supported.
+>
+> `1m`,`3m`,`5m`,`30m`,`1h`,`2h`,`6h`,`8h`,`12h`,`1d`,`3d`,`m`,`y` are supported.
 
 ## Quickstart
 

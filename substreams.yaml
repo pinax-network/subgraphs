@@ -31,5 +31,5 @@ modules:
       type: proto:sf.substreams.v1.Clock
 
 params:
-  # options: "", hour, day, month, year
-  map_clock: day
+  # options: "",1m,3m,5m,30m,1h,2h,6h,8h,12h,1d,3d,m,y
+  map_clock: 1d
