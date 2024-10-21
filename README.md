@@ -55,7 +55,7 @@ Initial block: 0
 Kind: map
 Input: source: sf.substreams.v1.Clock
 Output Type: proto:sf.substreams.v1.Clock
-Hash: 6e1bd863b0f69efe251f9c99f5468231312e4d59
+Hash: 5ecae9cc10aaa9b9cb9965c98964a933c2dd9b98
 
 Name: store_clock
 Initial block: 0
@@ -63,7 +63,7 @@ Kind: store
 Input: map: clock
 Value Type: string
 Update Policy: set
-Hash: bd42bfa2c82e8d31cdc37e08ecac1df4324a555c
+Hash: c5a6015c4e8d253314c64f83ebc90dbe4f576863
 
 Name: map_clock
 Initial block: 0
@@ -72,5 +72,5 @@ Input: params: 1d
 Input: map: clock
 Input: store: store_clock
 Output Type: proto:sf.substreams.v1.Clock
-Hash: 203f7bc4be2fc8afbf3ded28d6273856856cb1d5
+Hash: ea19f6c6c13b27ca4a53f81689173c5a41cfe80f
 ```
