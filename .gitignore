@@ -4,6 +4,7 @@ dev/
 buf.gen.yaml
 *.db
 data/
+state.yaml
 
 ### Substreams template
 .envrc

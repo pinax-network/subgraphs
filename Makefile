@@ -21,15 +21,10 @@ graph:
 info:
 	substreams info
 
-.PHONY: run
-run:
-	substreams run -e eth.substreams.pinax.network:443 map_clock -s -100 --production-mode
-
 .PHONY: gui
 gui:
-	substreams gui -e eth.substreams.pinax.network:443 map_clock -s 1 -t 100000 --production-mode
+	substreams gui substreams.yaml -e eth.substreams.pinax.network:443 map_clock -s 0 -t 0 --production-mode
 
-.PHONY: deploy
-deploy:
-	graph build
-	graph deploy --studio clock
+.PHONY: cache
+cache:
+	substreams-sink-noop eth.substreams.pinax.network:443 substreams.yaml map_clock 0:

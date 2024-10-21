@@ -4,27 +4,32 @@
 ![Version](https://img.shields.io/github/v/release/pinax-network/substreams-clock)
 ![License](https://img.shields.io/github/license/pinax-network/substreams-clock)
 
-> Block ID, Number & Timestamp
+> Emits `Clock` map modules at set intervals.
+> `hour`, `day`, `month`, `year` are supported.
 
 ## Quickstart
 
 ```
-$ gh repo clone pinax-network/substreams-clock
-$ cd substreams-clock
-$ make
-$ make gui
+gh repo clone pinax-network/substreams-clock
+cd substreams-clock
+make
+make gui
 ```
 
 ## Releases `.spkg`
 
-- https://github.com/pinax-network/substreams-clock/releases
+- <https://github.com/pinax-network/substreams-clock/releases>
 
 ## Mermaid graph
 
 ```mermaid
 graph TD;
-  graph_out[map: graph_out];
-  sf.substreams.v1.Clock[source: sf.substreams.v1.Clock] --> graph_out;
+  store_clock[store: store_clock];
+  sf.substreams.v1.Clock[source: sf.substreams.v1.Clock] --> store_clock;
+  map_clock[map: map_clock];
+  map_clock:params[params] --> map_clock;
+  sf.substreams.v1.Clock[source: sf.substreams.v1.Clock] --> map_clock;
+  store_clock -- deltas --> map_clock;
 ```
 
 ## Map Outputs
@@ -33,54 +38,29 @@ graph TD;
 
 ```json
 {
-  "entityChanges": [
-    {
-      "entity": "Clock",
-      "id": "542d7e9a07a94d93879a51452d6f077a461d311018f0b03377b2d877bb72cdf0",
-      "ordinal": "0",
-      "operation": "OPERATION_CREATE",
-      "fields": [
-        {
-          "name": "number",
-          "newValue": {
-            "bigint": "18221781"
-          }
-        },
-        {
-          "name": "seconds",
-          "newValue": {
-            "bigint": "1695753443"
-          }
-        },
-        {
-          "name": "nanos",
-          "newValue": {
-            "bigint": "0"
-          }
-        },
-        {
-          "name": "timestamp",
-          "newValue": {
-            "string": "2023-09-26T18:37:23Z"
-          }
-        }
-      ]
-    }
-  ]
+  "id": "ab79f822909750f88dfb9dd0350c1ebe98d5495e9c969cdeb6e0ac993b80175b",
+  "number": "6912",
+  "timestamp": "2015-07-31T00:00:01Z"
 }
 ```
 
 ### Modules
 
 ```yaml
-Package name: clock
-Version: v0.1.0
-Doc: Block ID, number & timestamp
-Modules:
-----
-Name: graph_out
+Name: store_clock
+Initial block: 0
+Kind: store
+Input: source: sf.substreams.v1.Clock
+Value Type: string
+Update Policy: set
+Hash: 2810ecc8f812533b3d7d272392793a6590d863c0
+
+Name: map_clock
 Initial block: 0
 Kind: map
-Output Type: proto:sf.substreams.sink.entity.v1.EntityChanges
-Hash: d2913e1f3c4966817a7cdbbd49db407a1a81ebc9
+Input: params: day
+Input: source: sf.substreams.v1.Clock
+Input: store: store_clock
+Output Type: proto:sf.substreams.v1.Clock
+Hash: 1723a789b027af657c12fe9c37eefafd56595078
 ```
