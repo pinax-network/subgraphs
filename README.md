@@ -6,7 +6,7 @@
 
 > Emits `Clock` map modules at set intervals.
 >
-> `1m`,`3m`,`5m`,`30m`,`1h`,`2h`,`6h`,`8h`,`12h`,`1d`,`3d`,`m`,`y` are supported.
+> `1m`,`3m`,`5m`,`30m`,`1h`,`2h`,`6h`,`8h`,`12h`,`1d`,`3d`,`m`,`y` are supported using `params`.
 
 ## Quickstart
 
