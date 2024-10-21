@@ -23,8 +23,8 @@ info:
 
 .PHONY: gui
 gui:
-	substreams gui substreams.yaml -e eth.substreams.pinax.network:443 map_clock -s 0 -t 200000 -H "X-Sf-Substreams-Parallel-Jobs: 100" --production-mode
+	substreams gui substreams.yaml -e eos.substreams.pinax.network:443 map_clock -s 0 -t 200000 --production-mode
 
 .PHONY: cache
 cache:
-	substreams-sink-noop eth.substreams.pinax.network:443 substreams.yaml map_clock 0: -H "X-Sf-Substreams-Parallel-Jobs: 100"
+	substreams-sink-noop eos.substreams.pinax.network:443 substreams.yaml map_clock 0: -H "X-Sf-Substreams-Parallel-Jobs: 100"

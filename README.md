@@ -25,11 +25,13 @@ make gui
 
 ```mermaid
 graph TD;
+  clock[map: clock];
+  sf.substreams.v1.Clock[source: sf.substreams.v1.Clock] --> clock;
   store_clock[store: store_clock];
-  sf.substreams.v1.Clock[source: sf.substreams.v1.Clock] --> store_clock;
+  clock --> store_clock;
   map_clock[map: map_clock];
   map_clock:params[params] --> map_clock;
-  sf.substreams.v1.Clock[source: sf.substreams.v1.Clock] --> map_clock;
+  clock --> map_clock;
   store_clock -- deltas --> map_clock;
 ```
 
@@ -48,20 +50,27 @@ graph TD;
 ### Modules
 
 ```yaml
+Name: clock
+Initial block: 0
+Kind: map
+Input: source: sf.substreams.v1.Clock
+Output Type: proto:sf.substreams.v1.Clock
+Hash: 6e1bd863b0f69efe251f9c99f5468231312e4d59
+
 Name: store_clock
 Initial block: 0
 Kind: store
-Input: source: sf.substreams.v1.Clock
+Input: map: clock
 Value Type: string
 Update Policy: set
-Hash: 2810ecc8f812533b3d7d272392793a6590d863c0
+Hash: bd42bfa2c82e8d31cdc37e08ecac1df4324a555c
 
 Name: map_clock
 Initial block: 0
 Kind: map
-Input: params: day
-Input: source: sf.substreams.v1.Clock
+Input: params: 1d
+Input: map: clock
 Input: store: store_clock
 Output Type: proto:sf.substreams.v1.Clock
-Hash: 1723a789b027af657c12fe9c37eefafd56595078
+Hash: 203f7bc4be2fc8afbf3ded28d6273856856cb1d5
 ```

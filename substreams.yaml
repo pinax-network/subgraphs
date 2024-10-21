@@ -13,18 +13,25 @@ binaries:
     file: ./target/wasm32-unknown-unknown/release/clock.wasm
 
 modules:
+  - name: clock
+    kind: map
+    inputs:
+      - source: sf.substreams.v1.Clock
+    output:
+      type: proto:sf.substreams.v1.Clock
+
   - name: store_clock
     kind: store
     updatePolicy: set
     valueType: string
     inputs:
-      - source: sf.substreams.v1.Clock
+      - map: clock
 
   - name: map_clock
     kind: map
     inputs:
       - params: string
-      - source: sf.substreams.v1.Clock
+      - map: clock
       - store: store_clock
         mode: deltas
     output:
